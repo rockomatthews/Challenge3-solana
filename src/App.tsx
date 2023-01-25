@@ -93,28 +93,54 @@ function App() {
     }
   };
 
+  const disconnectWallet = async () => {
+    // @ts-ignore
+    const { solana } = window;
+
+		// checks if phantom wallet exists
+    if (solana) {
+      try {
+				
+        // disconnects wallet and returns response which includes the wallet public key
+        setWalletKey(undefined);
+				// update walletKey to be the public key
+        
+      } catch (err) {
+      // { code: 4001, message: 'User rejected the request.' }
+      }
+    }
+  };
+
 	// HTML code for the app
   return (
     <div className="App">
       <header className="App-header">
       {provider && !walletKey && (
-          <button
-            style={{
-              fontSize: "16px",
-              padding: "15px",
-              fontWeight: "bold",
-              borderRadius: "5px",
-            }}
-            onClick={connectWallet}
-          >
-            Connect Wallet
-          </button>
+          <div className='a-side'>
+            <button className="button-1"
+              style={{
+                fontSize: "16px",
+                padding: "15px",
+                fontWeight: "bold",
+                borderRadius: "5px",
+              }}
+              onClick={connectWallet}
+            >
+              Connect Wallet
+            </button>
+          </div>
         )}
         {provider && walletKey && (
-          <p
+          <div className='b-side'>
+            <button className='button-2'
+            onClick={disconnectWallet}
           >
-            Connected account: {provider.publicKey?.toBase58()}
-          </p>
+            Disconnect Wallet
+          </button>
+            <p>
+              Connected Public Key: {provider.publicKey?.toBase58()}
+            </p>
+          </div>
         )}
       </header>
 
