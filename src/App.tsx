@@ -137,7 +137,7 @@ function App() {
           >
             Disconnect Wallet
           </button>
-            <p>
+            <p className='key-info'>
               Connected Public Key: {provider.publicKey?.toBase58()}
             </p>
           </div>

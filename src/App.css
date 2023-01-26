@@ -15,7 +15,7 @@
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
+  /* min-height: 100vh; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -50,15 +50,22 @@
   cursor: pointer;
 }
 
+
 .button-2 {
   background-color: white; 
   border: none;
   color: black;
-  padding: 15px 32px;
+  padding: 15px 20px;
   text-align: center;
   text-decoration: none;
-  display: inline-block;
+  display: absolute;
+  float: right;
+  clear: both;
   font-size: 16px;
-  margin: 4px 2px;
+  margin: 20px;
   cursor: pointer;
+}
+
+.key-info {
+  display: inline-block;
 }
